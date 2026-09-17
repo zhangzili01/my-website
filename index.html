@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuhuan Xiongcheng — Auto Driveline &amp; Steering Parts Supplier</title>
+<meta name="description" content="B2B supplier of drive shafts, CV axles, steering shafts and universal joint parts for GAZ, UAZ, LADA, Hyundai, Kia, Toyota and Jeep vehicles. OE-level fitment, factory-direct pricing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E13;
+    --ink-2:#0F151C;
+    --panel:#141C25;
+    --panel-2:#1A242F;
+    --line:rgba(255,255,255,.09);
+    --line-strong:rgba(255,255,255,.16);
+    --text:#E9EFF5;
+    --muted:#8FA2B4;
+    --amber:#FF8A1F;
+    --amber-dim:#C4650F;
+    --steel:#6FA8D6;
+    --ok:#4ADE80;
+    --radius:14px;
+    --maxw:1180px;
+    --sp:clamp(64px,9vw,120px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4,.disp{
+    font-family:'Barlow Condensed','Archivo',sans-serif;
+    font-weight:600;line-height:1.06;letter-spacing:.01em;text-transform:uppercase;
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+  .eyebrow{
+    font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:.22em;
+    font-size:13px;color:var(--amber);font-weight:600;
+  }
+  .lead{color:var(--muted);font-size:17px;max-width:62ch}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:60;
+    backdrop-filter:blur(14px);
+    background:rgba(10,14,19,.82);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;gap:28px;height:70px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Barlow Condensed',sans-serif;
+    font-size:21px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+  .brand .mark{
+    width:30px;height:30px;flex:0 0 30px;border:2px solid var(--amber);border-radius:50%;
+    position:relative;
+  }
+  .brand .mark::before,.brand .mark::after{
+    content:'';position:absolute;background:var(--amber);
+  }
+  .brand .mark::before{inset:50% -7px auto -7px;height:2px;margin-top:-1px}
+  .brand .mark::after{inset:-7px 50% -7px auto;width:2px;margin-right:-1px}
+  .brand small{display:block;font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.16em;
+    color:var(--muted);text-transform:uppercase;font-weight:500;line-height:1.2}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{font-size:14px;color:var(--muted);font-weight:500;transition:color .2s;position:relative}
+  .nav-links a:hover{color:var(--text)}
+  .nav-links a::after{
+    content:'';position:absolute;left:0;right:100%;bottom:-6px;height:1px;background:var(--amber);
+    transition:right .28s ease;
+  }
+  .nav-links a:hover::after{right:0}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .lang{
+    display:flex;border:1px solid var(--line-strong);border-radius:100px;overflow:hidden;
+    font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.08em;
+  }
+  .lang button{
+    background:none;border:0;color:var(--muted);padding:6px 12px;cursor:pointer;
+    font:inherit;font-weight:600;text-transform:uppercase;transition:.2s;
+  }
+  .lang button.on{background:var(--amber);color:#150C02}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:600;
+    letter-spacing:.08em;text-transform:uppercase;
+    padding:12px 22px;border-radius:100px;border:1px solid transparent;cursor:pointer;
+    transition:transform .18s ease,box-shadow .25s ease,background .25s ease,color .25s ease;
+  }
+  .btn-amber{background:var(--amber);color:#150C02}
+  .btn-amber:hover{transform:translateY(-2px);box-shadow:0 10px 26px -8px rgba(255,138,31,.65)}
+  .btn-ghost{border-color:var(--line-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+  .btn svg{width:15px;height:15px}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(1100px 520px at 78% -8%,rgba(255,138,31,.14),transparent 62%),
+      radial-gradient(760px 460px at 8% 108%,rgba(111,168,214,.12),transparent 60%),
+      repeating-linear-gradient(0deg,transparent 0 39px,rgba(255,255,255,.028) 39px 40px),
+      repeating-linear-gradient(90deg,transparent 0 39px,rgba(255,255,255,.028) 39px 40px);
+    pointer-events:none;
+  }
+  .hero-in{position:relative;padding:clamp(70px,10vw,116px) 0 var(--sp)}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,64px);align-items:center}
+  .hero h1{font-size:clamp(42px,7.2vw,86px);margin:16px 0 20px}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero .lead{font-size:18px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .stamp{
+    display:inline-flex;align-items:center;gap:9px;font-size:13px;color:var(--muted);
+    border:1px solid var(--line);border-radius:100px;padding:7px 14px;
+    font-family:'Barlow Condensed',sans-serif;letter-spacing:.1em;text-transform:uppercase;
+  }
+  .stamp i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(74,222,128,.16)}
+
+  /* hero spec panel */
+  .spec{
+    border:1px solid var(--line-strong);border-radius:var(--radius);
+    background:linear-gradient(160deg,var(--panel),var(--ink-2));
+    padding:26px;position:relative;
+  }
+  .spec::after{
+    content:'OE / ODM';position:absolute;top:-11px;right:20px;background:var(--ink);
+    padding:0 10px;font-family:'Barlow Condensed',sans-serif;font-size:12px;
+    letter-spacing:.2em;color:var(--amber);
+  }
+  .spec-row{
+    display:flex;justify-content:space-between;gap:16px;padding:13px 0;
+    border-bottom:1px dashed var(--line);font-size:15px;
+  }
+  .spec-row:last-child{border-bottom:0;padding-bottom:0}
+  .spec-row span:first-child{color:var(--muted)}
+  .spec-row b{font-weight:600;color:var(--text);text-align:right}
+  .spec-art{margin:6px 0 16px;display:flex;justify-content:center}
+
+  /* ---------- metrics ---------- */
+  .metrics{border-bottom:1px solid var(--line);background:var(--ink-2)}
+  .metrics-in{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+  .metric{background:var(--ink-2);padding:30px clamp(14px,2.4vw,26px)}
+  .metric b{display:block;font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,4.4vw,46px);
+    font-weight:700;color:var(--amber);line-height:1}
+  .metric span{display:block;color:var(--muted);font-size:12.5px;letter-spacing:.13em;
+    text-transform:uppercase;margin-top:8px;font-family:'Barlow Condensed',sans-serif}
+
+  /* ---------- sections ---------- */
+  section{padding:var(--sp) 0;position:relative}
+  .sec-head{max-width:760px;margin-bottom:clamp(34px,4.6vw,58px)}
+  .sec-head h2{font-size:clamp(32px,4.9vw,54px);margin:14px 0 14px}
+  .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+    background:linear-gradient(165deg,var(--panel) 0%,var(--ink-2) 100%);
+    transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease;
+    position:relative;overflow:hidden;
+  }
+  .card:hover{transform:translateY(-5px);border-color:rgba(255,138,31,.42);
+    box-shadow:0 22px 44px -26px rgba(0,0,0,.9)}
+  .card h3{font-size:23px;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:15px}
+  .card .tag{
+    font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--steel);display:block;margin-bottom:14px;
+  }
+  .card .ico{width:42px;height:42px;margin-bottom:16px;color:var(--amber)}
+  .card ul{list-style:none;margin-top:14px;display:grid;gap:8px}
+  .card li{color:var(--muted);font-size:14.5px;padding-left:18px;position:relative}
+  .card li::before{content:'';position:absolute;left:0;top:8px;width:7px;height:7px;
+    border:1.5px solid var(--amber);transform:rotate(45deg)}
+
+  /* coverage chips */
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .chip{
+    font-family:'Barlow Condensed',sans-serif;font-size:14px;letter-spacing:.06em;
+    border:1px solid var(--line-strong);border-radius:100px;padding:7px 14px;color:var(--muted);
+    transition:.22s;
+  }
+  .chip:hover{border-color:var(--amber);color:var(--amber)}
+  .brand-block{border-top:1px solid var(--line);padding-top:22px;margin-top:26px}
+  .brand-block h4{font-size:19px;color:var(--text);margin-bottom:4px}
+  .brand-block p{color:var(--muted);font-size:14px}
+
+  /* ---------- process ---------- */
+  .rail{position:relative;padding-left:0}
+  .rail-line{position:absolute;left:23px;top:8px;bottom:8px;width:2px;
+    background:linear-gradient(180deg,var(--amber),rgba(255,138,31,.05))}
+  @media(min-width:861px){.rail{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+    .rail-line{display:none}}
+  .step{position:relative;padding:0 0 30px 62px}
+  .step:last-child{padding-bottom:0}
+  .step .n{
+    position:absolute;left:0;top:-2px;width:46px;height:46px;border-radius:50%;
+    border:1.5px solid var(--amber);background:var(--ink);display:grid;place-items:center;
+    font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;color:var(--amber);
+    z-index:1;
+  }
+  @media(min-width:861px){
+    .step{padding:56px 0 0}
+    .step .n{left:0;top:0}
+  }
+  .step h4{font-size:18px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:14px}
+
+  /* ---------- cta ---------- */
+  .cta{
+    border:1px solid var(--line-strong);border-radius:20px;overflow:hidden;position:relative;
+    background:
+      radial-gradient(800px 380px at 88% 12%,rgba(255,138,31,.16),transparent 60%),
+      linear-gradient(150deg,var(--panel) 0%,var(--ink-2) 70%);
+    padding:clamp(34px,5vw,62px);
+  }
+  .cta h2{font-size:clamp(30px,4.6vw,50px);margin-bottom:14px}
+  .cta-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,4vw,56px);align-items:center}
+  .contact-list{display:grid;gap:14px;margin-top:26px}
+  .contact-list a,.contact-list div{display:flex;gap:13px;align-items:flex-start;font-size:15px}
+  .contact-list svg{width:19px;height:19px;color:var(--amber);flex:0 0 19px;margin-top:2px}
+  .contact-list small{display:block;color:var(--muted);font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;font-family:'Barlow Condensed',sans-serif}
+  .placeholder{color:var(--amber);border-bottom:1px dashed var(--amber-dim);padding-bottom:1px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:34px 0;background:var(--ink-2)}
+  .foot{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+    color:var(--muted);font-size:13.5px}
+  .foot a:hover{color:var(--amber)}
+
+  /* ---------- media slots (drop your files into /images and /videos) ---------- */
+  .media{
+    position:relative;display:block;overflow:hidden;border-radius:10px;
+    border:1px solid var(--line);background:var(--ink-2);aspect-ratio:4/3;
+  }
+  .media.wide{aspect-ratio:16/9}
+  .media img{width:100%;height:100%;object-fit:cover;
+    transition:transform .5s cubic-bezier(.22,.8,.28,1)}
+  .card:hover .media img{transform:scale(1.04)}
+  .media.is-empty img{display:none}
+  .media .ph{
+    position:absolute;inset:0;display:none;flex-direction:column;align-items:center;
+    justify-content:center;gap:10px;text-align:center;padding:18px;
+    background:
+      repeating-linear-gradient(0deg,transparent 0 19px,rgba(255,255,255,.035) 19px 20px),
+      repeating-linear-gradient(90deg,transparent 0 19px,rgba(255,255,255,.035) 19px 20px),
+      linear-gradient(150deg,var(--panel),var(--ink-2));
+  }
+  .media.is-empty .ph{display:flex}
+  .media .ph svg{width:46px;height:46px;color:rgba(255,138,31,.55)}
+  .media .ph span{font-family:'Barlow Condensed',sans-serif;font-size:13px;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .media .ph code,.video-wrap .ph code{
+    font-family:ui-monospace,Consolas,monospace;font-size:11.5px;color:var(--amber);
+    background:rgba(255,138,31,.09);padding:3px 8px;border-radius:6px;
+  }
+  .gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .gal .media:first-child{grid-column:span 3;aspect-ratio:21/9}
+
+  /* video slot */
+  .video-wrap{
+    position:relative;border:1px solid var(--line-strong);border-radius:var(--radius);
+    overflow:hidden;background:var(--ink-2);aspect-ratio:16/9;
+  }
+  .video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+  .video-wrap.is-empty video{display:none}
+  .video-wrap .ph{
+    position:absolute;inset:0;display:none;flex-direction:column;align-items:center;
+    justify-content:center;gap:14px;text-align:center;padding:24px;
+    background:
+      radial-gradient(700px 320px at 50% 0%,rgba(255,138,31,.13),transparent 62%),
+      repeating-linear-gradient(0deg,transparent 0 23px,rgba(255,255,255,.032) 23px 24px),
+      repeating-linear-gradient(90deg,transparent 0 23px,rgba(255,255,255,.032) 23px 24px),
+      linear-gradient(150deg,var(--panel),var(--ink-2));
+  }
+  .video-wrap.is-empty .ph{display:flex}
+  .video-wrap .ph .play{
+    width:70px;height:70px;border-radius:50%;border:2px solid var(--amber);
+    display:grid;place-items:center;color:var(--amber);
+  }
+  .video-wrap .ph .play svg{width:24px;height:24px;margin-left:4px}
+  .video-wrap .ph b{font-family:'Barlow Condensed',sans-serif;font-size:21px;
+    letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+
+  /* ---------- reveal ---------- */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.28,1)}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1000px){
+    .nav-links{display:none}
+    .hero-grid,.cta-grid{grid-template-columns:1fr}
+    .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .metrics-in{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:640px){
+    .grid-3,.grid-2{grid-template-columns:1fr}
+    .metrics-in{grid-template-columns:1fr}
+    .brand small{display:none}
+    .hero h1{font-size:clamp(36px,10vw,46px)}
+  }
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <span class="mark" aria-hidden="true"></span>
+      <span>
+        Yuhuan Xiongcheng
+        <small data-en="Auto Driveline &amp; Steering Parts" data-zh="汽车传动与转向系统零件">Auto Driveline &amp; Steering Parts</small>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="#products" data-en="Products" data-zh="产品线">Products</a>
+      <a href="#coverage" data-en="Coverage" data-zh="车型覆盖">Coverage</a>
+      <a href="#capability" data-en="Capability" data-zh="工厂能力">Capability</a>
+      <a href="#factory" data-en="Workshop" data-zh="工厂实拍">Workshop</a>
+      <a href="#process" data-en="Process" data-zh="合作流程">Process</a>
+      <a href="#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="on">EN</button>
+        <button type="button" data-lang="zh">中文</button>
+      </div>
+      <a class="btn btn-amber" href="#contact" data-en="Contact Us" data-zh="联系我们">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-grid">
+        <div>
+          <span class="stamp" data-en="Factory-direct &middot; B2B export" data-zh="工厂直供 &middot; B2B 出口">Factory-direct &middot; B2B export</span>
+          <h1 data-en="Driveline &amp; Steering Parts, <em>Built to OE Spec</em>" data-zh="传动与转向零件，<em>按原厂规格制造</em>">Driveline &amp; Steering Parts, <em>Built to OE Spec</em></h1>
+          <p class="lead" data-en="We supply drive shafts, CV axles, steering shafts, universal joints and splined components for Russian, Korean, Japanese and American vehicles — matched to original dimensions for drop-in fitment." data-zh="我们供应传动轴、半轴 CV 轴、转向轴、十字万向节及花键件，覆盖俄系、韩系、日系、美系车型，按原厂尺寸复刻，可直接装车。">We supply drive shafts, CV axles, steering shafts, universal joints and splined components for Russian, Korean, Japanese and American vehicles — matched to original dimensions for drop-in fitment.</p>
+          <div class="hero-actions">
+            <a class="btn btn-amber" href="#products" data-en="Browse Products" data-zh="浏览产品">Browse Products</a>
+            <a class="btn btn-ghost" href="#factory" data-en="Factory Tour" data-zh="工厂实拍">Factory Tour</a>
+          </div>
+        </div>
+
+        <div class="spec rv">
+          <!-- REPLACE: put your main product photo at images/hero-product.jpg -->
+          <figure class="media wide is-empty">
+            <img src="images/hero-product.jpg" alt="Drive shaft assembly with universal joints" loading="lazy">
+            <span class="ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 12h18"/><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="12" r="2.4"/><path d="M10 12v-3M12 12v-3M14 12v-3"/></svg>
+              <span data-en="Product photo" data-zh="产品实拍图">Product photo</span>
+              <code>images/hero-product.jpg</code>
+            </span>
+          </figure>
+          <div class="spec-row"><span data-en="Core range" data-zh="主营范围">Core range</span><b data-en="Drive shaft / CV axle / Steering shaft" data-zh="传动轴 / 半轴 / 转向轴">Drive shaft / CV axle / Steering shaft</b></div>
+          <div class="spec-row"><span data-en="Fitment" data-zh="适配标准">Fitment</span><b data-en="OE replacement, matched dimensions" data-zh="OE 替换，尺寸对标原厂">OE replacement, matched dimensions</b></div>
+          <div class="spec-row"><span data-en="Service" data-zh="服务">Service</span><b data-en="OEM / ODM, private label" data-zh="OEM / ODM，贴牌">OEM / ODM, private label</b></div>
+          <div class="spec-row"><span data-en="Terms" data-zh="贸易条款">Terms</span><b data-en="EXW / FOB, negotiation welcome" data-zh="EXW / FOB，欢迎洽谈">EXW / FOB, negotiation welcome</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <div class="metrics">
+    <div class="wrap" style="padding-left:0;padding-right:0">
+      <div class="metrics-in">
+        <div class="metric"><b data-en="OE" data-zh="OE">OE</b><span data-en="Fitment accuracy" data-zh="原厂替换精度">Fitment accuracy</span></div>
+        <div class="metric"><b data-en="CNC" data-zh="CNC">CNC</b><span data-en="In-house machining" data-zh="自有数控加工">In-house machining</span></div>
+        <div class="metric"><b data-en="OEM" data-zh="OEM">OEM</b><span data-en="Custom &amp; private label" data-zh="定制与贴牌">Custom &amp; private label</span></div>
+        <div class="metric"><b data-en="B2B" data-zh="B2B">B2B</b><span data-en="Factory-direct supply" data-zh="工厂直供">Factory-direct supply</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow" data-en="What we make" data-zh="主营产品">What we make</span>
+        <h2 data-en="Parts under the vehicle, matched to the number on your parts list" data-zh="车身底下的零件，对得上你清单上的编号">Parts under the vehicle, matched to the number on your parts list</h2>
+        <p class="lead" data-en="Send us an OE number, a VIN, or a photo with measurements — we confirm the exact variant before quoting." data-zh="发我 OE 号、车架号，或带尺寸的照片——报价前先帮你确认到具体变体。">Send us an OE number, a VIN, or a photo with measurements — we confirm the exact variant before quoting.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card rv">
+          <!-- REPLACE: images/products/drive-shaft.jpg -->
+          <figure class="media is-empty">
+            <img src="images/products/drive-shaft.jpg" alt="Complete propeller shaft with universal joints" loading="lazy">
+            <span class="ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+              <code>images/products/drive-shaft.jpg</code>
+            </span>
+          </figure>
+          <span class="tag" data-en="01 &middot; Driveline" data-zh="01 &middot; 传动系">01 &middot; Driveline</span>
+          <h3 data-en="Drive Shafts" data-zh="传动轴总成">Drive Shafts</h3>
+          <p data-en="Complete propeller shafts and intermediate shafts with universal joints, sliding splines and centre bearings." data-zh="整根传动轴与中间轴，含十字万向节、滑动花键、中间支撑轴承。">Complete propeller shafts and intermediate shafts with universal joints, sliding splines and centre bearings.</p>
+          <ul>
+            <li data-en="GAZ, UAZ, LADA, KAMAZ &amp; PAZ applications" data-zh="嘎斯、瓦兹、拉达、卡玛斯、PAZ 车型">GAZ, UAZ, LADA, KAMAZ &amp; PAZ applications</li>
+            <li data-en="4WD propshafts for Korean &amp; Japanese SUVs" data-zh="韩系、日系 SUV 四驱传动轴">4WD propshafts for Korean &amp; Japanese SUVs</li>
+          </ul>
+        </article>
+
+        <article class="card rv">
+          <!-- REPLACE: images/products/cv-axle.jpg -->
+          <figure class="media is-empty">
+            <img src="images/products/cv-axle.jpg" alt="CV axle half shaft with joints and boots" loading="lazy">
+            <span class="ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+              <code>images/products/cv-axle.jpg</code>
+            </span>
+          </figure>
+          <span class="tag" data-en="02 &middot; Driveline" data-zh="02 &middot; 传动系">02 &middot; Driveline</span>
+          <h3 data-en="CV Axles &amp; Half Shafts" data-zh="半轴与 CV 轴">CV Axles &amp; Half Shafts</h3>
+          <p data-en="Front and rear half shafts with outer CV joints, tripod joints and boots — left and right variants identified." data-zh="前后半轴，含外球笼、三销式万向节与防尘套——左右长短差异已区分。">Front and rear half shafts with outer CV joints, tripod joints and boots — left and right variants identified.</p>
+          <ul>
+            <li data-en="Left / right length differences respected" data-zh="区分左右长度差异">Left / right length differences respected</li>
+            <li data-en="ABS ring versions available" data-zh="可选带 ABS 齿圈版本">ABS ring versions available</li>
+          </ul>
+        </article>
+
+        <article class="card rv">
+          <!-- REPLACE: images/products/steering-shaft.jpg -->
+          <figure class="media is-empty">
+            <img src="images/products/steering-shaft.jpg" alt="Steering column cardan shaft" loading="lazy">
+            <span class="ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+              <code>images/products/steering-shaft.jpg</code>
+            </span>
+          </figure>
+          <span class="tag" data-en="03 &middot; Steering" data-zh="03 &middot; 转向系">03 &middot; Steering</span>
+          <h3 data-en="Steering Shafts &amp; Gears" data-zh="转向轴与转向机">Steering Shafts &amp; Gears</h3>
+          <p data-en="Steering column cardan shafts, intermediate shafts and rack-and-pinion steering gears, with and without power assist." data-zh="转向柱万向轴、转向中间轴、齿轮齿条转向机，含带助力与不带助力版本。">Steering column cardan shafts, intermediate shafts and rack-and-pinion steering gears, with and without power assist.</p>
+          <ul>
+            <li data-en="Manual &amp; power-steering versions kept separate" data-zh="机械与助力版本严格区分">Manual &amp; power-steering versions kept separate</li>
+            <li data-en="RHD / LHD applications" data-zh="右舵 / 左舵车型">RHD / LHD applications</li>
+          </ul>
+        </article>
+
+        <article class="card rv">
+          <!-- REPLACE: images/products/universal-joint.jpg -->
+          <figure class="media is-empty">
+            <img src="images/products/universal-joint.jpg" alt="Universal joint cross and yokes" loading="lazy">
+            <span class="ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+              <code>images/products/universal-joint.jpg</code>
+            </span>
+          </figure>
+          <span class="tag" data-en="04 &middot; Components" data-zh="04 &middot; 部件">04 &middot; Components</span>
+          <h3 data-en="Universal Joints &amp; Yokes" data-zh="万向节与叉类件">Universal Joints &amp; Yokes</h3>
+          <p data-en="Cross joints, slip yokes, flange yokes and end yokes in the common OE sizes used across truck and off-road drivelines." data-zh="十字节、滑动叉、凸缘叉、端叉，覆盖卡车与越野车传动轴常用原厂规格。">Cross joints, slip yokes, flange yokes and end yokes in the common OE sizes used across truck and off-road drivelines.</p>
+          <ul>
+            <li data-en="Sealed needle bearings, pre-greased" data-zh="密封滚针轴承，已预注脂">Sealed needle bearings, pre-greased</li>
+          </ul>
+        </article>
+
+        <article class="card rv">
+          <!-- REPLACE: images/products/spline-shaft.jpg -->
+          <figure class="media is-empty">
+            <img src="images/products/spline-shaft.jpg" alt="Splined shaft and coupling" loading="lazy">
+            <span class="ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+              <code>images/products/spline-shaft.jpg</code>
+            </span>
+          </figure>
+          <span class="tag" data-en="05 &middot; Components" data-zh="05 &middot; 部件">05 &middot; Components</span>
+          <h3 data-en="Splined Shafts &amp; Couplings" data-zh="花键轴与联轴件">Splined Shafts &amp; Couplings</h3>
+          <p data-en="Spline shafts, stub shafts, couplings and steering knuckle components machined to the original tooth profile." data-zh="花键轴、中间花键短轴、联轴节与转向节件，按原厂齿形加工。">Spline shafts, stub shafts, couplings and steering knuckle components machined to the original tooth profile.</p>
+          <ul>
+            <li data-en="Involute and straight splines" data-zh="渐开线花键与矩形花键">Involute and straight splines</li>
+          </ul>
+        </article>
+
+        <article class="card rv">
+          <!-- REPLACE: images/products/oem-parts.jpg -->
+          <figure class="media is-empty">
+            <img src="images/products/oem-parts.jpg" alt="OEM and private label parts" loading="lazy">
+            <span class="ph">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+              <code>images/products/oem-parts.jpg</code>
+            </span>
+          </figure>
+          <span class="tag" data-en="06 &middot; Service" data-zh="06 &middot; 服务">06 &middot; Service</span>
+          <h3 data-en="OEM / ODM &amp; Private Label" data-zh="OEM / ODM 与贴牌">OEM / ODM &amp; Private Label</h3>
+          <p data-en="Manufacturing against your drawing or sample, with your branding on the part and the packaging." data-zh="按图纸或样品生产，零件与包装可贴你的品牌。">Manufacturing against your drawing or sample, with your branding on the part and the packaging.</p>
+          <ul>
+            <li data-en="Reverse-engineer from a worn sample" data-zh="可依旧件反求测绘">Reverse-engineer from a worn sample</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section id="coverage" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow" data-en="Vehicle coverage" data-zh="车型覆盖">Vehicle coverage</span>
+        <h2 data-en="Four vehicle families we quote every week" data-zh="每周都在报价的四个车系">Four vehicle families we quote every week</h2>
+        <p class="lead" data-en="If your vehicle is not listed, send the OE number or VIN — coverage grows with every inquiry." data-zh="列表里没有你的车型也没关系，发 OE 号或车架号过来，覆盖范围是随询盘扩大的。">If your vehicle is not listed, send the OE number or VIN — coverage grows with every inquiry.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card rv">
+          <span class="tag" data-en="Russian / CIS" data-zh="俄系 / 独联体">Russian / CIS</span>
+          <h3 data-en="GAZ &middot; UAZ &middot; LADA &middot; KAMAZ" data-zh="嘎斯 &middot; 瓦兹 &middot; 拉达 &middot; 卡玛斯">GAZ &middot; UAZ &middot; LADA &middot; KAMAZ</h3>
+          <p data-en="Our deepest range: Gazelle and GAZon NEXT, UAZ 3151 / Patriot / 469, LADA classic to Priora and Niva, plus KAMAZ, MAZ, ZIL and PAZ driveline parts." data-zh="最深的一条线：ГАЗель 与 GAZon NEXT、УАЗ 3151 / 爱国者 / 469、拉达从经典款到 Priora 与 Niva，以及卡玛斯、玛兹、吉尔、PAZ 传动件。">Our deepest range: Gazelle and GAZon NEXT, UAZ 3151 / Patriot / 469, LADA classic to Priora and Niva, plus KAMAZ, MAZ, ZIL and PAZ driveline parts.</p>
+          <div class="chips">
+            <span class="chip">GAZelle 3302 / 33023 / 2705</span>
+            <span class="chip">GAZon NEXT</span>
+            <span class="chip">Sobol 2217 / 23107</span>
+            <span class="chip">UAZ 3151 / 3741</span>
+            <span class="chip">UAZ Patriot 3163</span>
+            <span class="chip">UAZ 469</span>
+            <span class="chip">LADA 2101&ndash;2107</span>
+            <span class="chip">LADA Niva 2121</span>
+            <span class="chip">Kalina 1118</span>
+            <span class="chip">Priora 2170</span>
+            <span class="chip">KAMAZ 4310 / 53215</span>
+            <span class="chip">PAZ 3204 / Vector</span>
+          </div>
+        </div>
+
+        <div class="card rv">
+          <span class="tag" data-en="Korean" data-zh="韩系">Korean</span>
+          <h3 data-en="Hyundai &middot; KIA &middot; SsangYong" data-zh="现代 &middot; 起亚 &middot; 双龙">Hyundai &middot; KIA &middot; SsangYong</h3>
+          <p data-en="Steering gears, drive shafts and CV axles keyed to the 56500 / 49300 / 49500 number families, covering the models sold in the CIS and Latin America." data-zh="转向机、传动轴、半轴，对应 56500 / 49300 / 49500 号段，覆盖独联体与拉美在售车型。">Steering gears, drive shafts and CV axles keyed to the 56500 / 49300 / 49500 number families, covering the models sold in the CIS and Latin America.</p>
+          <div class="chips">
+            <span class="chip">Accent / Verna / Solaris</span>
+            <span class="chip">Elantra / Avante</span>
+            <span class="chip">Sonata</span>
+            <span class="chip">Tucson / ix35</span>
+            <span class="chip">Santa Fe</span>
+            <span class="chip">i10 / i30</span>
+            <span class="chip">KIA Rio / Cerato</span>
+            <span class="chip">Optima / K5</span>
+            <span class="chip">Sportage</span>
+            <span class="chip">Sorento</span>
+            <span class="chip">Soul</span>
+            <span class="chip">SsangYong</span>
+          </div>
+        </div>
+
+        <div class="card rv">
+          <span class="tag" data-en="Japanese" data-zh="日系">Japanese</span>
+          <h3 data-en="Toyota &middot; Suzuki &middot; Nissan" data-zh="丰田 &middot; 铃木 &middot; 日产">Toyota &middot; Suzuki &middot; Nissan</h3>
+          <p data-en="Steering knuckle arms, CV joints and half shafts for the platforms common in Africa, the Middle East and Southeast Asia." data-zh="转向节臂、CV 万向节、半轴，覆盖非洲、中东、东南亚常见平台。">Steering knuckle arms, CV joints and half shafts for the platforms common in Africa, the Middle East and Southeast Asia.</p>
+          <div class="chips">
+            <span class="chip">Hilux / 4Runner</span>
+            <span class="chip">Venza</span>
+            <span class="chip">Camry</span>
+            <span class="chip">Prius</span>
+            <span class="chip">Suzuki Kei</span>
+            <span class="chip">Suzuki 44300 / 44310</span>
+          </div>
+        </div>
+
+        <div class="card rv">
+          <span class="tag" data-en="American &amp; European" data-zh="美系与欧系">American &amp; European</span>
+          <h3 data-en="Jeep &middot; Ford &middot; Chevrolet &middot; VW" data-zh="吉普 &middot; 福特 &middot; 雪佛兰 &middot; 大众">Jeep &middot; Ford &middot; Chevrolet &middot; VW</h3>
+          <p data-en="Off-road driveline parts including rear half shafts and steering intermediate shafts for Jeep Wrangler and Sprinter-platform vans." data-zh="越野车传动件，含 Jeep 牧马人后半轴与 Sprinter 平台厢式车转向中间轴。">Off-road driveline parts including rear half shafts and steering intermediate shafts for Jeep Wrangler and Sprinter-platform vans.</p>
+          <div class="chips">
+            <span class="chip">Jeep Wrangler JK</span>
+            <span class="chip">Ford</span>
+            <span class="chip">Chevrolet</span>
+            <span class="chip">VW / Audi steering</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITY -->
+  <section id="capability">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow" data-en="Factory capability" data-zh="工厂能力">Factory capability</span>
+        <h2 data-en="Why buyers keep the second order with us" data-zh="买家为什么把第二单也留在这里">Why buyers keep the second order with us</h2>
+      </div>
+
+      <div class="grid-3">
+        <article class="card rv">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><circle cx="12" cy="12" r="3"/></svg>
+          <h3 data-en="OE Replacement Accuracy" data-zh="原厂替换精度">OE Replacement Accuracy</h3>
+          <p data-en="Every part is checked against the original key dimensions before the first batch ships, so the number you order is the number that fits." data-zh="首批发货前逐项核对原厂关键尺寸，确保你订的号就是能装上的号。">Every part is checked against the original key dimensions before the first batch ships, so the number you order is the number that fits.</p>
+        </article>
+
+        <article class="card rv">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20V9l6-3 6 3v11"/><path d="M4 20h16M9 20v-6h6v6"/></svg>
+          <h3 data-en="In-House Machining" data-zh="自有加工能力">In-House Machining</h3>
+          <p data-en="Spline cutting, turning, hardening and balancing stay in our own workshop — which is what keeps tolerances and lead times under control." data-zh="花键加工、车削、热处理与动平衡全部自有车间完成，公差和交期才可控。">Spline cutting, turning, hardening and balancing stay in our own workshop — which is what keeps tolerances and lead times under control.</p>
+        </article>
+
+        <article class="card rv">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l2.5 2.5L16 8"/><circle cx="12" cy="12" r="9"/></svg>
+          <h3 data-en="Inspection Before Packing" data-zh="发货前检验">Inspection Before Packing</h3>
+          <p data-en="Dimensional check, joint articulation check and a labelled photo set for every shipment, sent before the goods leave." data-zh="每批货做尺寸检验、万向节转动检验，并附照片存档，发货前先发给你确认。">Dimensional check, joint articulation check and a labelled photo set for every shipment, sent before the goods leave.</p>
+        </article>
+
+        <article class="card rv">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h13l5 5v5h-4"/><circle cx="7" cy="17" r="2.2"/><circle cx="17" cy="17" r="2.2"/><path d="M9.2 17h5.6"/></svg>
+          <h3 data-en="Trial Orders Welcome" data-zh="接受试单">Trial Orders Welcome</h3>
+          <p data-en="Start with a small mixed trial load to test fitment and finish; scale to container volume once the parts prove out." data-zh="可以先小批量混装试单验证适配与做工，验合格再上整柜量。">Start with a small mixed trial load to test fitment and finish; scale to container volume once the parts prove out.</p>
+        </article>
+
+        <article class="card rv">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16v12H4z"/><path d="M4 10h16M9 6v12"/></svg>
+          <h3 data-en="Export Packing &amp; Documents" data-zh="出口包装与单证">Export Packing &amp; Documents</h3>
+          <p data-en="Neutral or branded cartons, rust protection for sea freight, and commercial documents prepared to your customs requirements." data-zh="中性或贴牌纸箱、海运防锈处理，单证按你的清关要求准备。">Neutral or branded cartons, rust protection for sea freight, and commercial documents prepared to your customs requirements.</p>
+        </article>
+
+        <article class="card rv">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v11H8l-4 4z"/></svg>
+          <h3 data-en="Technical Reply in a Day" data-zh="技术问题当天回">Technical Reply in a Day</h3>
+          <p data-en="Send a photo, a measurement or a part number — you get a fitment confirmation or a request for the exact missing dimension." data-zh="发照片、尺寸或零件号过来，当天给你适配确认，或缺哪个尺寸就问哪个。">Send a photo, a measurement or a part number — you get a fitment confirmation or a request for the exact missing dimension.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTORY -->
+  <section id="factory">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow" data-en="Inside the workshop" data-zh="工厂实拍">Inside the workshop</span>
+        <h2 data-en="The workshop behind the parts" data-zh="零件背后的车间">The workshop behind the parts</h2>
+        <p class="lead" data-en="Spline cutting, turning and inspection happen in one place, so the fit you approved on the sample is the fit that arrives in the carton." data-zh="花键加工、车削与检验都在一个车间完成，你确认过的样品装配状态就是大货到货的状态。">Spline cutting, turning and inspection happen in one place, so the fit you approved on the sample is the fit that arrives in the carton.</p>
+      </div>
+
+      <!-- REPLACE: drop your clip at videos/factory-tour.mp4 -->
+      <div class="video-wrap is-empty rv">
+        <video id="factoryVideo" controls preload="metadata" playsinline>
+          <source src="videos/factory-tour.mp4" type="video/mp4">
+        </video>
+        <div class="ph">
+          <span class="play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l12 7-12 7z"/></svg>
+          </span>
+          <b data-en="Factory video" data-zh="工厂视频">Factory video</b>
+          <code>videos/factory-tour.mp4</code>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top:16px">
+        <!-- REPLACE: images/factory/workshop.jpg -->
+        <figure class="media is-empty rv">
+          <img src="images/factory/workshop.jpg" alt="Workshop floor" loading="lazy">
+          <span class="ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+            <span data-en="Workshop" data-zh="车间全景">Workshop</span>
+            <code>images/factory/workshop.jpg</code>
+          </span>
+        </figure>
+
+        <!-- REPLACE: images/factory/cnc.jpg -->
+        <figure class="media is-empty rv">
+          <img src="images/factory/cnc.jpg" alt="CNC machining of splines" loading="lazy">
+          <span class="ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+            <span data-en="Machining" data-zh="加工工序">Machining</span>
+            <code>images/factory/cnc.jpg</code>
+          </span>
+        </figure>
+
+        <!-- REPLACE: images/factory/inspection.jpg -->
+        <figure class="media is-empty rv">
+          <img src="images/factory/inspection.jpg" alt="Dimensional inspection before packing" loading="lazy">
+          <span class="ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg>
+            <span data-en="Inspection" data-zh="检验与包装">Inspection</span>
+            <code>images/factory/inspection.jpg</code>
+          </span>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" style="background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow" data-en="How we work" data-zh="合作流程">How we work</span>
+        <h2 data-en="From inquiry to shipment, in six steps" data-zh="从询盘到发运，六步走完">From inquiry to shipment, in six steps</h2>
+      </div>
+      <div class="rail rv">
+        <div class="rail-line" aria-hidden="true"></div>
+        <div class="step"><span class="n">1</span><h4 data-en="Inquiry" data-zh="询盘">Inquiry</h4><p data-en="Send OE number, VIN or a photo with measurements." data-zh="发 OE 号、车架号，或带尺寸的照片。">Send OE number, VIN or a photo with measurements.</p></div>
+        <div class="step"><span class="n">2</span><h4 data-en="Fitment Check" data-zh="适配确认">Fitment Check</h4><p data-en="We confirm the exact variant — including left/right and drive type." data-zh="确认到具体变体，含左右、驱动形式。">We confirm the exact variant — including left/right and drive type.</p></div>
+        <div class="step"><span class="n">3</span><h4 data-en="Quotation" data-zh="报价">Quotation</h4><p data-en="Unit price, MOQ, packing and terms in one clear sheet." data-zh="单价、起订量、包装、条款一张表说清。">Unit price, MOQ, packing and terms in one clear sheet.</p></div>
+        <div class="step"><span class="n">4</span><h4 data-en="Sample" data-zh="样品">Sample</h4><p data-en="Sample or trial batch for fitment verification." data-zh="样品或小批量试单验证适配。">Sample or trial batch for fitment verification.</p></div>
+        <div class="step"><span class="n">5</span><h4 data-en="Production &amp; QC" data-zh="生产与质检">Production &amp; QC</h4><p data-en="Manufacturing, inspection and photo report before packing." data-zh="生产、检验，包装前出照片报告。">Manufacturing, inspection and photo report before packing.</p></div>
+        <div class="step"><span class="n">6</span><h4 data-en="Shipment" data-zh="发运">Shipment</h4><p data-en="Export packing, documents and booking to your port." data-zh="出口包装、单证，订舱到你指定港口。">Export packing, documents and booking to your port.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta rv">
+        <div class="cta-grid">
+          <div>
+            <span class="eyebrow" data-en="Find us" data-zh="联系方式">Find us</span>
+            <h2 data-en="Visit the workshop, or ask for a live walkthrough" data-zh="欢迎来车间看厂，或要求线上视频看线">Visit the workshop, or ask for a live walkthrough</h2>
+            <p class="lead" data-en="Showroom visits and production walkthroughs are welcome. Reach us on WhatsApp, or through our store on Alibaba." data-zh="欢迎到展厅看货、到车间看线，可通过 WhatsApp 或阿里店铺联系我们。">Showroom visits and production walkthroughs are welcome. Reach us on WhatsApp, or through our store on Alibaba.</p>
+            <div class="hero-actions">
+              <a class="btn btn-amber" href="#products" data-en="Browse Products" data-zh="浏览产品">Browse Products</a>
+              <a class="btn btn-ghost" href="#factory" data-en="Factory Tour" data-zh="工厂实拍">Factory Tour</a>
+            </div>
+          </div>
+
+          <div class="contact-list">
+            <!-- TODO: replace the highlighted placeholders with your real details -->
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 006 6L16 14l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg><span><small data-en="WhatsApp / Phone" data-zh="WhatsApp / 电话">WhatsApp / Phone</small><b class="placeholder">+86 000 0000 0000</b></span></div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span><small data-en="Address" data-zh="地址">Address</small><b class="placeholder" data-en="YOUR CITY, ZHEJIANG, CHINA" data-zh="中国 浙江 你的城市">YOUR CITY, ZHEJIANG, CHINA</b></span></div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M3 12h18"/></svg><span><small data-en="Alibaba Store" data-zh="阿里店铺">Alibaba Store</small><b class="placeholder" data-en="your-store.en.alibaba.com" data-zh="your-store.en.alibaba.com">your-store.en.alibaba.com</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; <span id="yr">2026</span> Yuhuan Xiongcheng &middot; <span data-en="Auto driveline &amp; steering parts supplier" data-zh="汽车传动与转向零件供应商">Auto driveline &amp; steering parts supplier</span></span>
+    <span>
+      <a href="#products" data-en="Products" data-zh="产品线">Products</a> &nbsp;&middot;&nbsp;
+      <a href="#capability" data-en="Capability" data-zh="工厂能力">Capability</a> &nbsp;&middot;&nbsp;
+      <a href="#contact" data-en="Contact" data-zh="联系我们">Contact</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- language switch (EN / 中文) ---------- */
+  var buttons = document.querySelectorAll('.lang button');
+  var nodes = document.querySelectorAll('[data-en][data-zh]');
+
+  function setLang(lang) {
+    nodes.forEach(function (el) {
+      var val = el.getAttribute('data-' + lang);
+      if (val !== null) el.innerHTML = val;
+    });
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    buttons.forEach(function (b) { b.classList.toggle('on', b.dataset.lang === lang); });
+    try { localStorage.setItem('site-lang', lang); } catch (e) { /* private mode */ }
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.dataset.lang); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('site-lang'); } catch (e) { /* ignore */ }
+  if (saved === 'zh' || (!saved && (navigator.language || '').toLowerCase().indexOf('zh') === 0)) {
+    setLang('zh');
+  }
+
+  /* ---------- media slots: keep the placeholder until the real file exists ---------- */
+  document.querySelectorAll('.media img').forEach(function (img) {
+    var holder = img.closest('.media');
+    var show = function () { holder.classList.remove('is-empty'); };
+    var hide = function () { holder.classList.add('is-empty'); };
+    if (img.complete) {
+      img.naturalWidth > 0 ? show() : hide();
+    } else {
+      img.addEventListener('load', show);
+      img.addEventListener('error', hide);
+    }
+  });
+
+  var video = document.getElementById('factoryVideo');
+  if (video) {
+    var vWrap = video.closest('.video-wrap');
+    video.addEventListener('loadeddata', function () { vWrap.classList.remove('is-empty'); });
+    video.addEventListener('error', function () { vWrap.classList.add('is-empty'); });
+    var src = video.querySelector('source');
+    if (src) src.addEventListener('error', function () { vWrap.classList.add('is-empty'); });
+  }
+
+  /* ---------- scroll reveal ---------- */
+  var items = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, i) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        setTimeout(function () { el.classList.add('in'); }, Math.min(i, 4) * 70);
+        io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------- year ---------- */
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+
+
+</body>
+</html>
