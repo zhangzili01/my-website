@@ -28,8 +28,9 @@ $slots = @(
 )
 $videoSlot = 'videos\factory-tour.mp4'
 
-$imgExt = @('.jpg', '.jpeg', '.png', '.webp')
+$imgExt = @('.jpg', '.jpeg', '.png', '.webp', '.bmp', '.gif')
 $vidExt = @('.mp4', '.m4v', '.mov')
+Add-Type -AssemblyName System.Drawing -ErrorAction SilentlyContinue
 
 Write-Host ""
 Write-Host "===== WEBSITE ASSET IMPORT ====="
@@ -76,7 +77,22 @@ foreach ($p in $plan) {
     $dir = Split-Path -Parent $p.To
     try {
         if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
-        Copy-Item -LiteralPath $p.From -Destination $p.To -Force
+        $srcExt = [System.IO.Path]::GetExtension($p.From).ToLower()
+        $dstExt = [System.IO.Path]::GetExtension($p.To).ToLower()
+        if (($srcExt -eq '.png' -or $srcExt -eq '.bmp' -or $srcExt -eq '.gif') -and $dstExt -eq '.jpg') {
+            # convert (e.g. 9.png / 10.png) to JPEG so it matches the .jpg path the page expects
+            $im = [System.Drawing.Image]::FromFile($p.From)
+            $bm = New-Object System.Drawing.Bitmap($im.Width, $im.Height)
+            $gr = [System.Drawing.Graphics]::FromImage($bm)
+            $gr.Clear([System.Drawing.Color]::White)
+            $gr.DrawImage($im, 0, 0, $im.Width, $im.Height)
+            $gr.Dispose()
+            $bm.Save($p.To, [System.Drawing.Imaging.ImageFormat]::Jpeg)
+            $bm.Dispose()
+            $im.Dispose()
+        } else {
+            Copy-Item -LiteralPath $p.From -Destination $p.To -Force
+        }
         Write-Host ("  [OK]   {0}" -f (Split-Path -Leaf $p.From)) -ForegroundColor Green
         Write-Host ("         -> {0}" -f $rel)
         $ok++
