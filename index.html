@@ -777,13 +777,20 @@
   /* ---------- media slots: keep the placeholder until the real file exists ---------- */
   document.querySelectorAll('.media img').forEach(function (img) {
     var holder = img.closest('.media');
+    var base = (img.getAttribute('src') || '').split('?')[0];
+    var tried = false;
     var show = function () { holder.classList.remove('is-empty'); };
     var hide = function () { holder.classList.add('is-empty'); };
+    /* If the file fails, retry once with a query string: browsers cache a 404 from
+       the time before the photo was uploaded, and would otherwise never re-check. */
+    var retryOrFail = function () {
+      if (!tried && base) { tried = true; img.src = base + '?v=2'; return; }
+      hide();
+    };
+    img.addEventListener('load', show);
+    img.addEventListener('error', retryOrFail);
     if (img.complete) {
-      img.naturalWidth > 0 ? show() : hide();
-    } else {
-      img.addEventListener('load', show);
-      img.addEventListener('error', hide);
+      if (img.naturalWidth > 0) { show(); } else { retryOrFail(); }
     }
   });
 
