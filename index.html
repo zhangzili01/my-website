@@ -697,17 +697,15 @@
       </div>
 
       <!-- REPLACE: drop your clip at videos/factory-tour.mp4 -->
-      <div class="video-wrap is-empty rv">
-        <video id="factoryVideo" controls preload="metadata" playsinline>
+      <!-- The player is always visible (no placeholder gating): mobile browsers
+           with preload="metadata" never fire 'loadeddata' until the user taps
+           play, which previously left the <video> hidden behind a dead overlay.
+           The poster shows a workshop still until playback starts. -->
+      <div class="video-wrap rv">
+        <video id="factoryVideo" controls preload="metadata" playsinline
+               poster="images/factory/workshop.jpg">
           <source src="videos/factory-tour.mp4" type="video/mp4">
         </video>
-        <div class="ph">
-          <span class="play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5l12 7-12 7z"/></svg>
-          </span>
-          <b data-en="Factory video" data-zh="工厂视频">Factory video</b>
-          <code>videos/factory-tour.mp4</code>
-        </div>
       </div>
 
       <div class="grid-3" style="margin-top:16px">
@@ -844,14 +842,8 @@
     if (img.complete && img.naturalWidth > 0) { show(); }
   });
 
-  var video = document.getElementById('factoryVideo');
-  if (video) {
-    var vWrap = video.closest('.video-wrap');
-    video.addEventListener('loadeddata', function () { vWrap.classList.remove('is-empty'); });
-    video.addEventListener('error', function () { vWrap.classList.add('is-empty'); });
-    var src = video.querySelector('source');
-    if (src) src.addEventListener('error', function () { vWrap.classList.add('is-empty'); });
-  }
+  /* The factory video no longer needs show/hide gating: it is always visible and
+     uses its own poster + native controls, so it works on mobile too. */
 
   /* ---------- scroll reveal ---------- */
   var items = document.querySelectorAll('.rv');
