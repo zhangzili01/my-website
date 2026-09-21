@@ -781,7 +781,7 @@
           <div class="contact-list">
             <!-- TODO: replace the highlighted placeholders with your real details -->
             <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 006 6L16 14l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z"/></svg><span><small data-en="WhatsApp / Phone" data-zh="WhatsApp / 电话">WhatsApp / Phone</small><b class="placeholder">+8613666839529/+8615867066756</b></span></div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span><small data-en="Address" data-zh="地址">Address</small><b class="placeholder" data-en="YOUR CITY, ZHEJIANG, CHINA" data-zh="中国 浙江 台州玉环">YUHUAN,TAIZHOU, ZHEJIANG, CHINA</b></span></div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg><span><small data-en="Address" data-zh="地址">Address</small><b class="placeholder" data-en="YUHUAN, ZHEJIANG, CHINA" data-zh="中国 浙江 玉环">YUHUAN, ZHEJIANG, CHINA</b></span></div>
             <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M3 12h18"/></svg><span><small data-en="Alibaba Store" data-zh="阿里店铺">Alibaba Store</small><b class="placeholder" data-en="yuhuanxiongcheng.en.alibaba.com" data-zh="yuhuanxiongcheng.en.alibaba.com">yuhuanxiongcheng.en.alibaba.com</b></span></div>
           </div>
         </div>
@@ -816,18 +816,17 @@
     });
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     buttons.forEach(function (b) { b.classList.toggle('on', b.dataset.lang === lang); });
-    try { localStorage.setItem('site-lang', lang); } catch (e) { /* private mode */ }
   }
 
   buttons.forEach(function (b) {
     b.addEventListener('click', function () { setLang(b.dataset.lang); });
   });
 
-  var saved = null;
-  try { saved = localStorage.getItem('site-lang'); } catch (e) { /* ignore */ }
-  if (saved === 'zh' || (!saved && (navigator.language || '').toLowerCase().indexOf('zh') === 0)) {
-    setLang('zh');
-  }
+  /* Default language on load: always English.
+     The EN / 中文 buttons above still switch freely; we deliberately do NOT
+     auto-detect the browser language or remember the last choice, so the page
+     always opens in English (the target audience for this site). */
+  setLang('en');
 
   /* ---------- media slots: keep the placeholder until the real file exists ---------- */
   document.querySelectorAll('.media img').forEach(function (img) {
